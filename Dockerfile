@@ -8,7 +8,7 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN go build -o /fileserver
+RUN CGO_ENABLED=0 go build -o /fileserver
 
 
 FROM scratch

@@ -8,11 +8,6 @@ import (
 	"gitlab.com/avarf/getenvs"
 )
 
-var (
-	flagBindTo = flag.String("bind-to", "localhost:9005", "bind to ")
-	flagPath   = flag.String("path", "/dev/shm", "path to serve")
-)
-
 func main() {
 	flag.Parse()
 	http.Handle("/", http.FileServer(http.Dir(getenvs.GetEnvString("PATH", "/dev/shm"))))
